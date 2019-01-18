@@ -1,0 +1,13 @@
+extends ../layouts/default
+
+block head
+
+block content
+	include ../blocks/header
+	main.main
+		include ../blocks/choise
+		//- include ../blocks/works
+	include ../blocks/footer
+
+	+script('common.min')
+	+script('main')

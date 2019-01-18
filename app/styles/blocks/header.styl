@@ -1,0 +1,103 @@
+.header
+  position relative
+  width 100%
+  padding-top 24px
+  z-index 10
+
+.gamburger
+  position relative
+  cursor pointer
+  width 45px
+  height 34px
+  margin-right 30px
+  display none
+  min-width 45px
+  +to-width(992px)
+    display block
+
+  &__item
+    position absolute
+    left 0
+    top 8px
+    height 2px
+    background-color black
+    right 0
+    transition 0.3s all
+    &:nth-child(2)
+      top 18px
+    &:last-child
+      top 28px
+
+  &.active
+    .gamburger__item
+      &:nth-child(1)
+        transform rotate(-45deg)
+        top 18px
+      &:nth-child(2)
+        transform rotate(45deg)
+        top 18px
+      &:last-child
+        opacity 0
+
+  &:hover
+    cursor pointer
+
+.nav
+  +to-width(640px)
+    position fixed
+    top 0
+    right 0
+    width 320px
+    height 100vh
+    transform translateX(100%)
+  &-list
+    display flex
+    padding 0 30px
+    background-color #fff200
+    +to-width(992px)
+      padding 0 10px
+    +to-width(640px)
+      height 100%
+      flex-direction column
+      padding-left 40px
+      padding-top 60px
+
+    &__item
+      font-size 16px
+      text-align center
+      text-transform uppercase
+      width 50%
+      t()
+      &.active
+        background-color white
+      &:hover
+        background-color white
+      a
+        width 100%
+        display block
+        padding 18px 0
+        color #040404
+
+      +to-width(992px)
+        font-size 12px
+      +to-width(640px)
+        text-align left
+        font-size 16px
+        a
+          padding 10px 0
+        &.active
+          background-color transparent
+
+
+.breadcrumbs
+  margin-top 40px
+  font-size 10px
+  text-transform uppercase
+  font-weight 700
+  &__item
+    color #040404
+    &:after
+      content ' /'
+
+    &:last-child
+      pointer-events none
