@@ -1,24 +1,18 @@
 header.header
   .wrap
-    .header-gamburger
-      .header-gamburger__item
-        .header-gamburger__item
-          .header-gamburger__item
-    nav.nav
-      ul.nav-list
-        li.nav-list__item.active
-          a(href="#") Мужчины
-        li.nav-list__item
-          a(href="#") Женщины
-        li.nav-list__item
-          a(href="#") Дети
-        li.nav-list__item
-          a(href="#") Новинки
-        li.nav-list__item
-          a(href="#") Акции
-        li.nav-list__item
-          a(href="#") Lookbook
-
-    .breadcrumbs
-      a(href="#").breadcrumbs__item Главная
-      a(href="#").breadcrumbs__item Мужчины
+    
+    .header-wrap
+      a(href="/").header-logo
+        img(src="assets/images/logo.png")
+      
+      a(href="tel:88005553535").header-phone
+        img(src="assets/images/phone.svg")
+  
+    a(href="profile.html").header-user
+      .header-user__name Alexey
+      .header-user__image(style="background-image: url('assets/images/ava.jpg')")
+    
+    .gamburger
+      .gamburger__item
+      .gamburger__item
+      .gamburger__item

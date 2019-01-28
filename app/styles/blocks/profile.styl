@@ -1,0 +1,83 @@
+.profile
+  padding-top 100px
+  padding-bottom 60px
+  display flex
+  align-items center
+  +to-width(520px)
+    padding-top 40px
+
+  &-head
+    display flex
+
+  &__image
+    width 160px
+    min-width 160px
+    height 160px
+    border-radius 50%
+    background #333
+    background-size cover
+    background-position top center
+    +to-width(520px)
+      width 100px
+      min-width 100px
+      height 100px
+
+  &-info
+    padding-left 60px
+    +to-width(768px)
+      padding-left 40px
+    +to-width(520px)
+      padding-left 25px
+
+  &__name
+    font-size 36px
+    font-weight 600
+    border-bottom 2px solid #eaeaea
+    padding-bottom 15px
+    margin-bottom 20px
+    line-height 44px
+    +to-width(900px)
+      font-size 32px
+      line-height 40px
+    +to-width(520px)
+      font-size 22px
+      line-height 32px
+
+  &-content
+    padding-left 220px
+    +to-width(768px)
+      padding-left 0
+
+  &-contacts
+    display flex
+    flex-direction column
+    padding-bottom 20px
+    &__item
+      font-size 20px
+      color #DE3D7B
+      margin-bottom 10px
+      display block
+      width fit-content
+      +to-width(520px)
+        font-size 14px
+
+  &__text
+    font-size 16px
+    line-height 28px
+    margin-bottom 30px
+
+
+  &__button
+    background-color #DE3D7B
+    padding 14px 30px
+    border-radius 6px
+    font-size 14px
+    font-weight 600
+    color white
+    cursor pointer
+    display initial
+    margin-top 30px
+    box-shadow 4px 4px 21px -3px transparent
+    t()
+    &:hover
+      box-shadow 4px 4px 21px -3px #de3d7b

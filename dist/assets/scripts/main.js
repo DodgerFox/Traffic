@@ -1,116 +1,39 @@
+'use strict'
+
 window.onload = function () {
-  filter()
+  dropdown()
+  modal()
 }
 
-// "показать еще"
-$('.filter-more').click(function () {
-  $(this).fadeOut(0)
-  $(this).prev('.filter-list').addClass('active')
-})
+var dropdown = () => {
+  var dropdown = document.querySelectorAll('.dropdown')[0],
+      button = document.querySelectorAll('.gamburger')[0];
 
-// ставим лайк
-$('.goods__like').click(function () {
-  if ($(this).hasClass('active')) {
-    $(this).removeClass('active')
-  }else{
-    $(this).addClass('active')
-  }
-})
+  button.onclick = switcher
 
-//мобильные фильтры
-$('.gamburger').click(function () {
-
-  if($(this).hasClass('active')){
-    $(this).removeClass('active')
-    $('.choise-filters').removeClass('active')
-  }else{
-    $(this).addClass('active')
-    $('.choise-filters').addClass('active')
-  }
-
-})
-
-function filter() {
-
-  var items = $('.filter-item'),
-      tags = $('.tags'),
-      clear = $('.choise-filters__clear'),
-      filtered = '',
-      arrayChoise = [];
-
-// клик по элементу списка
-  $(items).click(function() {
-
-    var active = $(this);
-    filtering(active, arrayChoise)
-    tags.html('')
-    filtered = ''
-
-    $('.goods-item').fadeOut(300)
-    $(arrayChoise).each(function () {
-      $(tags).append('<li class = "tags-item" data-filter="'+ this.attr +'"><p class="tags-item__text">'+ this.text +'</p><div class="tags-item__close"></div></li>')
-      filtered = filtered + '.'+this.attr
-    })
-
-    switchElems(filtered)
-})
-
-  // // клик по элементу списка
-  //   $(itemsClose).click(function() {
-  //     var active = $(this);
-  //     filtering(active, arrayChoise)
-  //     tags.html('')
-  //     filtered = ''
-  //
-  //     $('.goods-item').fadeOut(300)
-  //     $(arrayChoise).each(function () {
-  //       $(tags).append('<li class = "tags-item" data-filter="'+ this.attr +'"><p class="tags-item__text">'+ this.text +'</p><div class="tags-item__close"></div></li>')
-  //       filtered = filtered + '.'+this.attr
-  //     })
-  //   })
-
-// очистить фильтр
-  $(clear).click(function() {
-
-    arrayChoise = []
-    tags.html('')
-    $(items).removeClass('active')
-    $('.goods-item').fadeIn(300)
-  })
-}
-
-
-// добавление/удаление элементов
-function filtering(active, arrayChoise) {
-  var item = {
-    attr: $(active).attr('data-filter'),
-    text: $(active).find('.filter-item__text').text()
-  }
-
-  if ($(active).hasClass('active')) {
-    $(active).removeClass('active')
-    $(arrayChoise).each(function () {
-      if (this.attr == item.attr) {
-        arrayChoise.splice(arrayChoise.indexOf(this), 1)
-      }
-    })
-  }else{
-    $(active).addClass('active')
-    arrayChoise.push(item)
+  function switcher() {
+    this.classList.toggle('active')
+    dropdown.classList.toggle('open')
   }
 
 }
 
-// показыкаем/не показываем элементы
-function switchElems(filtered) {
-      $('.nothing').fadeOut()
-      setTimeout(function () {
-        if (filtered == ''){
-          $('.goods-item').fadeIn(300)
-        }else if($(filtered).size() < 1){
-          $('.nothing').css("display", "flex").hide().fadeIn()
-        }else{
-          $(filtered).fadeIn(300)
-        }
-      }, 400)
+var modal = () => {
+  var modal = document.querySelectorAll('.modal')[0],
+      body = document.body,
+      button = document.querySelectorAll('.profile__button')[0],
+      close = document.querySelectorAll('.modal__close')[0];
+
+  button.onclick = switcher
+  close.onclick = switcher
+  modal.onclick = function(event) {
+    event.target.classList.toggle('open')
+    body.classList.toggle('fixed')
+  };
+
+  function switcher() {
+    modal.classList.toggle('open')
+    body.classList.toggle('fixed')
+  }
+
 }

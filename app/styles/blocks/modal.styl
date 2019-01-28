@@ -1,0 +1,133 @@
+.modal
+  position fixed
+  z-index 10
+  left 0
+  right 0
+  top 0
+  bottom 0
+  background-color rgba(0, 0, 0, 0.7);
+  opacity 0
+  pointer-events none
+  padding 40px 0
+  t()
+  +to-width(640px)
+    padding-top 60px
+    padding-bottom 0px
+
+
+  &.open
+    opacity 1
+    pointer-events all
+    overflow scroll
+    .modal-container
+      transform translateY(0%)
+
+  .wrap
+    min-height 100%
+    display flex
+    align-items center
+    justify-content center
+    +to-width(640px)
+      padding 0
+
+  &__close
+    position absolute
+    right 20px
+    top 20px
+    width 30px
+    cursor pointer
+    t()
+    &:hover
+      opacity 0.7
+    +to-width(640px)
+      display none
+
+  &-container
+    background-color white
+    padding 40px
+    padding-top 70px
+    width 100%
+    position relative
+    overflow scroll
+    +to-width(640px)
+      bottom 0
+      padding-top 0
+      transform translateY(100%)
+      transition 0.5s transform
+      transition-delay 0.3s
+
+  &__title
+    font-size 36px
+    text-align center
+    +to-width(640px)
+      display none
+
+
+  &-body
+    display flex
+    flex-wrap wrap
+    padding-top 20px
+    margin-left -20px
+    margin-right -20px
+
+  &-item
+    width 50%
+    padding 20px
+    +to-width(720px)
+      padding 10px
+    +to-width(640px)
+      width 100%
+    +to-width(420px)
+      padding 10px 0
+
+    &__image
+      width 100%
+      height 200px
+      background-color #333
+      background-size cover
+      background-position center
+
+.category
+  display flex
+  justify-content space-between
+  flex-wrap wrap
+  padding-top 40px
+  +to-width(720px)
+    margin 0 -10px
+  +to-width(420px)
+    margin 0 -25px
+
+
+  &-item
+    font-size 14px
+    font-weight 600
+    +to-width(720px)
+      width 50%
+      padding 10px
+    +to-width(420px)
+      font-size 11px
+      padding 5px
+
+    &__container
+      padding 14px 30px
+      color #de3d7b
+      background-color transparent
+      border 2px solid #de3d7b
+      border-radius 6px
+      cursor pointer
+      text-align center
+      t()
+      +to-width(420px)
+        font-size 11px
+        padding 14px 10px
+
+
+    &.active
+      .category-item__container
+        background-color #de3d7b
+        color white
+
+    &:hover
+      .category-item__container
+        background-color #de3d7b
+        color white
